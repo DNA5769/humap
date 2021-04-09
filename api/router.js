@@ -254,6 +254,27 @@ router.get('/get-posts', (req, res) => {
     }
 });
 
+router.get('/get-posts-length', (req, res) => {
+    if ('latitude' in req.body && 'longitude' in req.body && 'tag' in req.body)
+    {
+        Post.find()
+        .then(results => {
+            res.status(200).json({ length: results.filter(result => (req.body.tag == "All" || req.body.tag == result.tag) && distance(result.latitude, result.longitude, req.body.latitude, req.body.longitude) <= 2).length });
+        })
+        .catch(err => {
+            res.status(401).json({
+                error: err
+            });
+        });
+    }
+    else
+    {
+        res.status(401).json({
+            error: "Body should contain latitude, longitude and tag"
+        });
+    }
+});
+
 router.post('/create-comment', (req, res) => {
     if ('userID' in req.body && 'postID' in req.body && 'content' in req.body)
     {
