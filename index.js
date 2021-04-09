@@ -5,6 +5,10 @@ const apiRoutes = require('./api/router');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+    res.redirect('/api');
+});
+
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
