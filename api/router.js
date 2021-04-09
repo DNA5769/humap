@@ -6,6 +6,7 @@ const md5 = require('md5');
 require('dotenv').config();
 
 const User = require('./models/user');
+const Post = require('./models/post');
 
 const router = express.Router();
 
@@ -126,6 +127,57 @@ router.post('/login-user', (req, res) => {
     {
         res.status(401).json({
             error: "Body should contain email and password!"
+        });
+    }
+});
+
+router.post('/create-post', (req, res) => {
+    if ('userID' in req.body && 'latitude' in req.body && 'longitude' in req.body &&
+        'title' in req.body && 'content' in req.body && 'tag' in req.body && 'isAnonymous' in req.body)
+    {
+        if (req.body.title.trim() === '')
+        {
+            res.status(401).json({
+                error: "Please enter a title"
+            });
+        }
+        else if (req.body.content.trim() === '')
+        {
+            res.status(401).json({
+                error: "Please enter content"
+            });
+        }
+        else
+        {
+            let post = new Post({
+                _id: new mongoose.Types.ObjectId(),
+                userID: req.body.userID,
+                latitude: req.body.latitude,
+                longitude: req.body.longitude,
+                title: req.body.title,
+                content: req.body.content,
+                comments: [],
+                tag: req.body.tag,
+                isAnonymous: req.body.isAnonymous
+            });
+
+            post.save()
+            .then(result => {
+                res.status(200).json({
+                    message: "Post added sucessfully"
+                });
+            })
+            .catch(err => {
+                res.status(401).json({
+                    error: err
+                });
+            });
+        }
+    }
+    else
+    {
+        res.status(401).json({
+            error: "Body should contain userID, latitude, longitude, title, content, tag and isAnonymous!"
         });
     }
 });
