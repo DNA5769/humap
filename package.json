@@ -20,7 +20,9 @@
   "homepage": "https://github.com/DNA5769/humap#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "email-syntax-validator": "^1.0.3",
     "express": "^4.17.1",
+    "md5": "^2.3.0",
     "mongoose": "^5.12.3"
   },
   "devDependencies": {

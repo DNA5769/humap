@@ -15,6 +15,13 @@
             <ul>
                 <li>Method - POST</li>
                 <li>Body - { name, email, password }</li>
+                <li>
+                    Returns
+                    <ul>
+                        <li>Status 200, If the credentials were correct</li>
+                        <li>Status 401, Data { error } - If the credentials were incorrect with error message</li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <br />
@@ -27,7 +34,7 @@
                     Returns
                     <ul>
                         <li>Status 200, Data { userID, name, email, password, avatar } - If the credentials were correct. Data to be passed as props to &lt;App /&gt;</li>
-                        <li>Status 401, Data { error } - If the credentials were incorrect</li>
+                        <li>Status 401, Data { error } - If the credentials were incorrect with error message</li>
                     </ul>
                 </li>
             </ul>
