@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DNA5769/humap#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "email-syntax-validator": "^1.0.3",
     "express": "^4.17.1",
