@@ -33,7 +33,7 @@ router.post('/create-user', (req, res) => {
                 error: "Please enter a valid email"
             });
         }
-        else if (req.body.password.trim() === '')
+        else if (req.body.password === '')
         {
             res.status(401).json({
                 error: "Please enter a password"
@@ -45,7 +45,7 @@ router.post('/create-user', (req, res) => {
                 _id: new mongoose.Types.ObjectId(),
                 name: req.body.name.trim(),
                 email: req.body.email.trim(),
-                password: req.body.password.trim(),
+                password: req.body.password,
                 avatar: `https://www.gravatar.com/avatar/${md5(req.body.email.trim())}`
             });
 
@@ -66,6 +66,66 @@ router.post('/create-user', (req, res) => {
     {
         res.status(401).json({
             error: "Body should contain name, email and password!"
+        });
+    }
+});
+
+router.post('/login-user', (req, res) => {
+    if ('email' in req.body && 'password' in req.body)
+    {
+        if (req.body.email.trim() === '' || !validator.validate(req.body.email.trim()))
+        {
+            res.status(401).json({
+                error: "Please enter a valid email"
+            });
+        }
+        else if (req.body.password === '')
+        {
+            res.status(401).json({
+                error: "Please enter a password"
+            });
+        }
+        else
+        {
+            User.find().where({ email: req.body.email.trim() }).exec()
+            .then(result => {
+                if (result.length === 0)
+                {
+                    res.status(401).json({
+                        error: "Account with this email doesn't exist. Please sign up first"
+                    });
+                }
+                else
+                {
+                    if (result[0].password === req.body.password)
+                    {
+                        res.status(200).json({
+                            userID: result[0]._id,
+                            name: result[0].name,
+                            email: result[0].email,
+                            password: result[0].password,
+                            avatar: result[0].avatar
+                        });
+                    }
+                    else
+                    {
+                        res.status(401).json({
+                            error: "Incorrect password"
+                        });
+                    }
+                }
+            })
+            .catch(err => {
+                res.status(401).json({
+                    error: err
+                });
+            });
+        }
+    }
+    else
+    {
+        res.status(401).json({
+            error: "Body should contain email and password!"
         });
     }
 });
