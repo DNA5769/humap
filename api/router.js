@@ -15,6 +15,14 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true
 });
 
+// Returns distance between (lat1, lon1) and (lat2, lon2) in kms
+function distance(lat1, lon1, lat2, lon2)
+{
+    let p = Math.PI/180;
+    let a = 0.5 - Math.cos((lat2-lat1)*p)/2 + Math.cos(lat1*p) * Math.cos(lat2*p) * (1-Math.cos((lon2-lon1)*p))/2;
+    return 12742 * Math.asin(Math.sqrt(a));
+}
+
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'api.html'));
 });
@@ -149,22 +157,31 @@ router.post('/create-post', (req, res) => {
         }
         else
         {
-            let post = new Post({
-                _id: new mongoose.Types.ObjectId(),
-                userID: req.body.userID,
-                latitude: req.body.latitude,
-                longitude: req.body.longitude,
-                title: req.body.title,
-                content: req.body.content,
-                comments: [],
-                tag: req.body.tag,
-                isAnonymous: req.body.isAnonymous
-            });
-
-            post.save()
+            User.find().where({ _id: req.body.userID })
             .then(result => {
-                res.status(200).json({
-                    message: "Post added sucessfully"
+                let post = new Post({
+                    _id: new mongoose.Types.ObjectId(),
+                    userID: req.body.userID,
+                    latitude: req.body.latitude,
+                    longitude: req.body.longitude,
+                    author: result[0].name,
+                    title: req.body.title,
+                    content: req.body.content,
+                    comments: [],
+                    tag: req.body.tag,
+                    isAnonymous: req.body.isAnonymous
+                });
+    
+                post.save()
+                .then(result => {
+                    res.status(200).json({
+                        message: "Post added sucessfully"
+                    });
+                })
+                .catch(err => {
+                    res.status(401).json({
+                        error: err
+                    });
                 });
             })
             .catch(err => {
@@ -178,6 +195,38 @@ router.post('/create-post', (req, res) => {
     {
         res.status(401).json({
             error: "Body should contain userID, latitude, longitude, title, content, tag and isAnonymous!"
+        });
+    }
+});
+
+router.get('/get-posts', (req, res) => {
+    if ('latitude' in req.body && 'longitude' in req.body)
+    {
+        Post.find()
+        .then(results => {
+            res.status(200).json(results
+                .filter(result => distance(result.latitude, result.longitude, req.body.latitude, req.body.longitude) <= 2)
+                .map(result => {
+                    const clone = JSON.parse(JSON.stringify(result));
+
+                    clone.postID = clone._id;
+                    delete clone._id;
+                    delete clone.__v;
+                    delete clone.updatedAt;
+
+                    return clone;
+                }));
+        })
+        .catch(err => {
+            res.status(401).json({
+                error: err
+            });
+        });
+    }
+    else
+    {
+        res.status(401).json({
+            error: "Body should contain latitude and longitude"
         });
     }
 });

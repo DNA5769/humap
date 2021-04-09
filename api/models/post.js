@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const postScheme = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     userID: mongoose.Schema.Types.ObjectId,
-    latitude: mongoose.Schema.Types.Decimal128,
-    longitude: mongoose.Schema.Types.Decimal128,
+    latitude: Number,
+    longitude: Number,
+    author: String,
     title: String,
     content: String,
     comments: [{
@@ -13,6 +14,6 @@ const postScheme = mongoose.Schema({
     }],
     tag: String,
     isAnonymous: Boolean
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Post', postScheme);
