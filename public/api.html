@@ -51,7 +51,7 @@
         <li>
             /api/get-posts?limit=6&page=9 - Gets all the posts for a location
             <ul>
-                <li>Method - GET</li>
+                <li>Method - POST</li>
                 <li>Body - { latitude, longitude, tag }</li>
                 <li>Returns - Status 200, Data Array of { postID , author, avatar, title, content, tag, isAnonymous, comments}</li>
                 <li>comments - Array of { author, content, avatar } // Here userID means the user who commented on the the respective post</li>
@@ -61,7 +61,7 @@
         <li>
             /api/get-posts-length - Gets all the posts for a location
             <ul>
-                <li>Method - GET</li>
+                <li>Method - POST</li>
                 <li>Body - { latitude, longitude, tag }</li>
                 <li>Returns - Status 200, Data { length } where length is the number of posts next to the coordinates and with the filter</li>
             </ul>

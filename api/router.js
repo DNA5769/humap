@@ -228,7 +228,7 @@ router.post('/create-post', (req, res) => {
     }
 });
 
-router.get('/get-posts', (req, res) => {
+router.post('/get-posts', (req, res) => {
     if ('latitude' in req.body && 'longitude' in req.body && 'tag' in req.body)
     {
         if (typeof req.query.limit === 'undefined')
@@ -276,7 +276,7 @@ router.get('/get-posts', (req, res) => {
     }
 });
 
-router.get('/get-posts-length', (req, res) => {
+router.post('/get-posts-length', (req, res) => {
     if ('latitude' in req.body && 'longitude' in req.body && 'tag' in req.body)
     {
         Post.find()
