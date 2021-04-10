@@ -27,10 +27,12 @@ baz
 ## Challenges We Faced
 qux
 
+*Wanna play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.*
+
+---
+
 This project was developed by us, **Team ECMAniacs**, as a submission for [Hack36 4.0](https://www.hack36.com/)
 
 ## Team ECMAniacs
 1. [Aqib Suhail](https://github.com/geeqib23)
 2. [Dennis Thomas](https://github.com/DNA5769)
-   
-*Wanna play around with the code and make changes to it yourself? Well **checkout** the development branch of this repo.*
