@@ -241,7 +241,7 @@ router.post('/get-posts', (req, res) => {
         else
         {
 
-            let page = Math.max(1, parseInt(req.query.page)), limit = parseInt(req.query.page);
+            let page = Math.max(1, parseInt(req.query.page)), limit = parseInt(req.query.limit);
             Post.find()
             .skip((page-1)*limit)
             .limit(limit)
