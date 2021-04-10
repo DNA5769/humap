@@ -322,13 +322,13 @@ router.post('/create-comment', (req, res) => {
                 }
                 else
                 {
-                    Post.updateOne({ _id: req.body.postID }, { $push: { comments: {
+                    Post.findOneAndUpdate({ _id: req.body.postID }, { $push: { comments: {
                         _id: new mongoose.Types.ObjectId(),
                         userID: req.body.userID,
                         author: result[0].name,
                         avatar: result[0].avatar,
                         content: req.body.content
-                    }}}).then(result => {
+                    }}}).exec().then(result => {
                         console.log('/create-comment', { message: "Comment added sucessfully" });
                         res.status(200).json({
                             message: "Comment added sucessfully"
