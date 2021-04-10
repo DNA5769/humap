@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import Pagination from './Pagination'
 import Posts from './Posts'
 import Map from './Map'
 import LoginSignup from './LoginSignup'
@@ -30,6 +29,9 @@ function Home(props) {
               </Route>
               <Route path='/create-post'>
                 <CreatePost />
+              </Route>
+              <Route path='/post-not-allowed'>
+                <div className='mt-5 text-align-center text-white'>You cant create a post outside 2 kilometres :P</div>
               </Route>
             </Switch>
           </div>

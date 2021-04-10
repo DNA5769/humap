@@ -9,7 +9,7 @@ function Sidebar(props) {
   return (
     <div className='sticky-top'>
       <div className='nav flex-column'>
-        <Link to='/create-post' className='nav-link'>
+        <Link to={appState.allowPost ? '/create-post' : '/post-not-allowed'} className='nav-link'>
           {/* <i className='fa fa-plus-circle plus' aria-hidden='true'></i> */}
           <svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='#2ecc71' className='bi bi-plus-circle plus' viewBox='0 0 16 16'>
             <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />

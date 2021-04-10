@@ -76,10 +76,10 @@ function LoginSignup(props) {
           <form onSubmit={handleSignup} className='box'>
             <h1>Signup</h1>
             <p className='text-muted'> Please enter your email, username and create a password!</p>
-            <input onChange={e => setEmail(e.target.value)} type='text' name='' placeholder='E-mail'></input>
+            <input ref={firstinput} onChange={e => setEmail(e.target.value)} type='text' name='' placeholder='E-mail'></input>
             <input onChange={e => setPassword(e.target.value)} type='password' name='' placeholder='Create password'></input>
             <a type='text' name='' placeholder='E-mail'></a>
-            <input autoFocus ref={firstinput} onChange={e => setUsername(e.target.value)} type='text' name='' placeholder='Username'></input>
+            <input autoFocus onChange={e => setUsername(e.target.value)} type='text' name='' placeholder='Username'></input>
             <input type='submit' name='' value='Signup'></input>
             <a onClick={toggleAccountStatus} className='forgot text-muted' href='#'>
               Already have an account? Log In

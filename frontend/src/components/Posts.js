@@ -99,7 +99,7 @@ function Posts(props) {
   return (
     <>
       <div className='container container--narrow py-md-5'>
-        <h2 onClick={() => console.log(page)} className='text-center text-white'>
+        <h2 onClick={() => console.log(appState.allowPost)} className='text-center text-white'>
           ACTIVITY NEAR YOU
         </h2>{' '}
         <div className='dropdown float-right'>
@@ -120,60 +120,65 @@ function Posts(props) {
 
       {/* POSTS */}
       <div className='ml-2 list-group list-group-flush' id='postscontainer'>
-        {posts.map((post, index) => (
-          <div key={index}>
-            <a
-              href='#'
-              ref={postbox}
-              // onClick={() => console.log(postbox.current.dataset)}
-              data-toggle='collapse'
-              data-target={'#id' + post.postID}
-              className='list-group-item post rounded'
-            >
-              <img className='avatar-tiny' src={post.isAnonymous ? 'https://st4.depositphotos.com/1000507/24488/v/600/depositphotos_244889634-stock-illustration-user-profile-picture-isolate-background.jpg' : post.avatar} />
-              <strong className='text-white'>{post.title}</strong>{' '}
-              <span className='text-white-50 small'>
-                by {post.isAnonymous ? 'anonymous' : post.author} on {post.createdAt}{' '}
-              </span>
-              <span className='tag'>{post.tag}</span>
-              <div className='body-content'> {post.content} </div>
-              <span className='badge badge-primary badge-pill align-items-center'>
-                <i className='fas fa-comment'></i> {post.comments.length}
-              </span>
-            </a>
+        {posts.map((post, index) => {
+          const date = new Date(post.createdAt)
+          const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+          return (
+            <div key={index}>
+              <a
+                href='#'
+                ref={postbox}
+                // onClick={() => console.log(postbox.current.dataset)}
+                data-toggle='collapse'
+                data-target={'#id' + post.postID}
+                className='list-group-item post rounded'
+              >
+                <img className='avatar-tiny' src={post.isAnonymous ? 'https://st4.depositphotos.com/1000507/24488/v/600/depositphotos_244889634-stock-illustration-user-profile-picture-isolate-background.jpg' : post.avatar} />
+                <strong className='text-white'>{post.title}</strong>{' '}
+                <strong className='text-white-50'>
+                  by {post.isAnonymous ? 'anonymous' : post.author} on {formattedDate}{' '}
+                </strong>
+                <span className='tag'>{post.tag}</span>
+                <div className='body-content'> {post.content} </div>
+                <span className='badge badge-primary badge-pill align-items-center'>
+                  <i className='fas fa-comment'></i> {post.comments.length}
+                </span>
+              </a>
 
-            {/* comment */}
-            <div id={'id' + post.postID} className='list-group collapse'>
-              {post.comments.map((comment, index) => (
-                <div key={index}>
-                  <div className='list-group-item comment rounded'>
-                    <strong>{comment.author}</strong>
-                    {'  '}
-                    {comment.content}
+              {/* comment */}
+              <div id={'id' + post.postID} className='list-group collapse'>
+                {post.comments.map((comment, index) => (
+                  <div key={index}>
+                    <div className='list-group-item comment rounded'>
+                      <strong>{comment.author}</strong>
+                      {'  '}
+                      {comment.content}
+                    </div>
                   </div>
-                </div>
-              ))}
-
-              <div className='list-group-item comment rounded '>
-                <form data-post={post.postID} onSubmit={handleComment}>
-                  <input
-                    // ref={commentbar}
-                    data-post={post.postID}
-                    // onChange={e => updateComment(commentbar.current.value)}
-                    onChange={e => updateComment(e.target.value)}
-                    autoFocus
-                    name='title'
-                    id='commentInput'
-                    type='text'
-                    placeholder='Comment'
-                    autoComplete='off'
-                  />
-                  <input type='submit' name='' value='Comment' href='#'></input>
-                </form>
+                ))}
+                {appState.allowPost && (
+                  <div className='list-group-item comment rounded '>
+                    <form data-post={post.postID} onSubmit={handleComment}>
+                      <input
+                        // ref={commentbar}
+                        data-post={post.postID}
+                        // onChange={e => updateComment(commentbar.current.value)}
+                        onChange={e => updateComment(e.target.value)}
+                        autoFocus
+                        name='title'
+                        id='commentInput'
+                        type='text'
+                        placeholder='Comment'
+                        autoComplete='off'
+                      />
+                      <input type='submit' name='' value='Comment' href='#'></input>
+                    </form>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       {/* Paginate */}

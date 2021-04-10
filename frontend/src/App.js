@@ -24,6 +24,7 @@ const App = props => {
     // loggedIn: localStorage.getItem('username'),
     location: [79.08886, 21.146633],
     currLocation: [79.08886, 21.146633],
+    allowPost: true,
   }
 
   const useReduce = (draft, action) => {
@@ -50,6 +51,10 @@ const App = props => {
         draft.currLocation = action.value
         return
       }
+      case 'setAllowPost': {
+        draft.allowPost = action.value
+        return
+      }
     }
   }
   const [state, dispatch] = useImmerReducer(useReduce, initial)
@@ -67,6 +72,13 @@ const App = props => {
       localStorage.removeItem('userID')
     }
   }, [state.loggedIn])
+
+  useEffect(() => {
+    let p = Math.PI / 180
+    let a = 0.5 - Math.cos((state.currLocation[1] - state.location[1]) * p) / 2 + (Math.cos(state.location[1] * p) * Math.cos(state.currLocation[1] * p) * (1 - Math.cos((state.currLocation[0] - state.location[0]) * p))) / 2
+    let dist = 12742 * Math.asin(Math.sqrt(a))
+    dispatch({ type: 'setAllowPost', value: dist < 2 })
+  }, [state.currLocation])
 
   return (
     <StateContext.Provider value={state}>
