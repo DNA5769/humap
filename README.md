@@ -6,6 +6,14 @@
 ![Designing](https://img.shields.io/badge/designed%20in-ms%20paint-blueviolet.svg)
 [![Website humap-app.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/humap-app.herokuapp.com.svg)](https://humap-app.herokuapp.com/)
 
+This project was developed by us, **Team ECMAniacs**, as a submission for [Hack36 4.0](https://www.hack36.com/)
+
+## Team ECMAniacs
+- [Aqib Suhail](https://github.com/geeqib23)
+- [Dennis Thomas](https://github.com/DNA5769)
+
+---
+
 [Humap](https://humap-app.herokuapp.com/) is a web app which aims to digitalize how societies interact within themselves by providing an easy interface to communicate which can result in creating better versions of themselves.
 
 ## Why We Built This
@@ -32,14 +40,8 @@ We allow the user to make posts along with a tag from his/her/their location and
 ## Challenges We Faced
 1. Finding a map api which was free and which worked well with React was quite a tough task
 2. Git Workflow
-3. Debugging  
+3. There's pain after breakup and then there is debugging NodeJS
 
-*Wanna play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.*
-
----
-
-This project was developed by us, **Team ECMAniacs**, as a submission for [Hack36 4.0](https://www.hack36.com/)
-
-## Team ECMAniacs
-- [Aqib Suhail](https://github.com/geeqib23)
-- [Dennis Thomas](https://github.com/DNA5769)
+## Additional Notes
+- Want to play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.
+- Try changing browsers (to Mozilla Firefox) if some parts of the site are too big/small. So in other words, it's not that our website is not responsive........it's your browser's fault <3
