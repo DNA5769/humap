@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 
@@ -17,5 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', apiRoutes);
+
+app.get('*', (req, res) => {
+    res.status(404).sendFile(path.join(__dirname, 'public', 'img', '404.jpg'));
+});
 
 app.listen(port, () => console.log(`[SERVER] Started`));
