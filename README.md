@@ -1,6 +1,6 @@
 # humap
 ![Generic badge](https://img.shields.io/badge/version-1.69-brightgreen.svg)
-![Generic badge](https://img.shields.io/badge/optimised-0%-critical.svg)
+![Generic badge](https://img.shields.io/badge/optimised-0%25-critical.svg)
 ![Generic badge](https://img.shields.io/badge/built%20with-love-important.svg)
 ![Generic badge](https://img.shields.io/badge/built%20by-code%20babes-ff69b4.svg)
 ![Generic badge](https://img.shields.io/badge/ctrl+c-ctrl+v-blue.svg)
