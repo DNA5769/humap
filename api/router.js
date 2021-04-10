@@ -243,8 +243,6 @@ router.post('/get-posts', (req, res) => {
 
             let page = Math.max(1, parseInt(req.query.page)), limit = parseInt(req.query.limit);
             Post.find()
-            .skip((page-1)*limit)
-            .limit(limit)
             .then(results => {
                 res.status(200).json(results
                     .filter(result => (req.body.tag == "All" || req.body.tag == result.tag) && distance(result.latitude, result.longitude, req.body.latitude, req.body.longitude) <= 2)
@@ -257,7 +255,7 @@ router.post('/get-posts', (req, res) => {
                         delete clone.updatedAt;
     
                         return clone;
-                    }));
+                    }).slice((page-1)*limit, (page-1)*limit+limit));
             })
             .catch(err => {
                 console.log('/get-posts', { error: err });
