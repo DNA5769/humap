@@ -6,7 +6,7 @@
 ![Designing](https://img.shields.io/badge/designed%20in-ms%20paint-blueviolet.svg)
 [![Website humap-app.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/humap-app.herokuapp.com.svg)](https://humap-app.herokuapp.com/)
 
-Humap is an app which aims to digitalize how societies interact within themselves by providing an easy interface to communicate which can result in creating better versions of themselves.
+[Humap](https://humap-app.herokuapp.com/) is a web app which aims to digitalize how societies interact within themselves by providing an easy interface to communicate which can result in creating better versions of themselves.
 
 ## Why We Built This
 Back in the days, society used to be tighly linked and knew everything about each other, they used to communicate very well with each other and this made societies
@@ -18,7 +18,9 @@ That's why we made this app, to help societies be together closely despite all t
 We allow the user to make posts along with a tag from his/her/their location and this post along with each post is saved along with the location in MongoDB Atlas DB. The user can also view posts in an area (within 2kms of the location pointed by the user) by using the interactive map and pointing to which location's post he/she/they want to see.
 
 ## Demo
-TODO
+![Sign Up](./demo/signup.png)
+![Feed](./demo/feed.png)
+![Create Post](./demo/createpost.png)
 
 ## Technologies Used
 1. MongoDB along with Mongoose
