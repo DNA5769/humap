@@ -10,11 +10,5 @@
 Submission for Hack36 4.0
 
 ### Team ECMAniacs
-<div style="display: flex;align-items: center;margin-top: 6px;">
-    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59912182?s=32&amp;v=4" width="32" height="32" alt="@DNA5769">
-    <div style="margin-left: 10px">Aqib Suhail</div>
-</div>
-<div style="display: flex;align-items: center;margin-top: 6px;">
-    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/40732639?s=32&amp;v=4" width="32" height="32" alt="@DNA5769">
-    <div style="margin-left: 10px">Dennis Thomas</div>
-</div>
+1. [Aqib Suhail](https://github.com/geeqib23)
+2. [Dennis Thomas](https://github.com/DNA5769)
