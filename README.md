@@ -15,10 +15,10 @@ capable of solving many issues effeciently. Nowadays, despite the increase in th
 That's why we made this app, to help societies be together closely despite all the distance between us right now and to help societies work on improving themselves by openly talking about issues and coming up with solutions.
 
 ## Working
-bar
+We allow the user to make posts along with a tag from his/her/their location and this post along with each post is saved along with the location in MongoDB Atlas DB. The user can also view posts in an area (within 2kms of the location pointed by the user) by using the interactive map and pointing to which location's post he/she/they want to see.
 
 ## Demo
-baz
+TODO
 
 ## Technologies Used
 1. MongoDB along with Mongoose
@@ -28,7 +28,8 @@ baz
 5. Mapbox
 
 ## Challenges We Faced
-qux
+1. Finding a map api which was free and which worked well with React was quite a tough task
+2. Debugging  
 
 *Wanna play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.*
 
