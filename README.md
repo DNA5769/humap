@@ -31,7 +31,8 @@ We allow the user to make posts along with a tag from his/her/their location and
 
 ## Challenges We Faced
 1. Finding a map api which was free and which worked well with React was quite a tough task
-2. Debugging  
+2. Git Workflow
+3. Debugging  
 
 *Wanna play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.*
 
