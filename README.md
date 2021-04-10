@@ -9,7 +9,10 @@
 Humap is an app which aims to digitalize how societies interact within themselves by providing an easy interface to communicate which can result in creating better versions of themselves.
 
 ## Why We Built This
-foo
+Back in the days, society used to be tighly linked and knew everything about each other, they used to communicate very well with each other and this made societies
+capable of solving many issues effeciently. Nowadays, despite the increase in the number of issues persisting in society, society has grown apart and due to the ongoing pandemic, it seems as if even neighbours are in a long-distance relationship.
+
+That's why we made this app, to help societies be together closely despite all the distance between us right now and to help societies work on improving themselves by openly talking about issues and coming up with solutions.
 
 ## Working
 bar
