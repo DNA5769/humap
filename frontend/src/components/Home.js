@@ -23,7 +23,7 @@ function Home(props) {
           <div className='col-4'>
             <Map />
           </div>
-          <div className='col-7point7'>
+          <div className='col-7'>
             <Switch>
               <Route exact path='/'>
                 {appState.loggedIn ? <Posts /> : <LoginSignup />}
@@ -34,7 +34,7 @@ function Home(props) {
             </Switch>
           </div>
           {appState.loggedIn && (
-            <div className='sticky-sidebar d-flex col-0point3'>
+            <div className='d-flex align-items-center justify-content-end col-1' id='sidebar'>
               <Sidebar />
             </div>
           )}

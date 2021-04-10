@@ -100,7 +100,7 @@ function Posts(props) {
     <>
       <div className='container container--narrow py-md-5'>
         <h2 onClick={() => console.log(page)} className='text-center text-white'>
-          FEED
+          ACTIVITY NEAR YOU
         </h2>{' '}
         <div className='dropdown float-right'>
           <button type='button' className='btn btn-primary dropdown-toggle' data-toggle='dropdown'>

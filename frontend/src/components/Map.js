@@ -28,7 +28,7 @@ function Map(props) {
         setViewport({
           longitude: pos.coords.longitude,
           latitude: pos.coords.latitude,
-          width: '33vw',
+          width: '100%',
           height: '90vh',
           zoom: 15,
         })
