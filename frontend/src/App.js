@@ -34,7 +34,7 @@ const App = props => {
         draft.user = action.value
         return
       }
-      case 'Flash Message': {
+      case 'flashMessage': {
         draft.flashMessage.push(action.value)
         return
       }
@@ -78,6 +78,7 @@ const App = props => {
     let a = 0.5 - Math.cos((state.currLocation[1] - state.location[1]) * p) / 2 + (Math.cos(state.location[1] * p) * Math.cos(state.currLocation[1] * p) * (1 - Math.cos((state.currLocation[0] - state.location[0]) * p))) / 2
     let dist = 12742 * Math.asin(Math.sqrt(a))
     dispatch({ type: 'setAllowPost', value: dist < 2 })
+    dist > 2 && dispatch({ type: 'flashMessage', value: 'You moved outside your zone, commenting/posting disabled now' })
   }, [state.currLocation])
 
   return (

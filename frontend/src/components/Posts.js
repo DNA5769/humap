@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import Axios from 'axios'
 import StateContext from '../StateContext'
+import UpdateContext from '../UpdateContext'
 
 function Posts(props) {
   const appState = useContext(StateContext)
+  const dispatch = useContext(UpdateContext)
   const tags = ['All', 'Help Wanted', 'Announcement', 'Emergency', 'Complaint', 'Bored At Home', 'Looking For Alikes', 'Confessions', 'Recommendations', 'Miscellaneous']
   const [comment, updateComment] = useState()
   const commentbar = useRef(null)
@@ -22,7 +24,6 @@ function Posts(props) {
         tag: filterTag,
       })
       console.table(response.data)
-      console.log(`/get-posts?limit=3&page=${(page - 1) * 3}`)
       setPosts(response.data)
     } catch (e) {
       console.log('error getting posts', e.response.data)
@@ -55,6 +56,7 @@ function Posts(props) {
       getPosts()
       getPostsCount()
     }
+    // dispatch({ type: 'flashMessage', value: 'hello' })
   }, [appState.currLocation])
 
   const handleComment = async e => {
@@ -71,8 +73,9 @@ function Posts(props) {
       getPosts()
       // console.log(commentbar.current.dataset.post)
     } catch (error) {
+      dispatch({ type: 'flashMessage', value: error.response.data.error })
       console.log(e.target.dataset.post)
-      console.log('ERROR commenting', error)
+      console.log('ERROR commenting', error.response.data)
       // console.log('ERROR commenting')
     }
     // console.log(commentbar.current.dataset)
@@ -99,7 +102,7 @@ function Posts(props) {
   return (
     <>
       <div className='container container--narrow py-md-5'>
-        <h2 onClick={() => console.log(appState.allowPost)} className='text-center text-white'>
+        <h2 onClick={() => console.log(appState.flashMessage)} className='text-center text-white'>
           ACTIVITY NEAR YOU
         </h2>{' '}
         <div className='dropdown float-right'>

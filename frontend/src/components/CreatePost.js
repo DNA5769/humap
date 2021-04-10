@@ -34,6 +34,7 @@ function CreatePost(props) {
       console.log('POST CREATED')
       console.log({ title, content, tag, isAnonymous })
     } catch (e) {
+      dispatch({ type: 'flashMessage', value: e.response.data.error })
       console.log(e.response.data)
     }
   }

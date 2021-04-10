@@ -26,8 +26,8 @@ function LoginSignup(props) {
       dispatch({ type: 'flashMessage', value: 'You successfully created an account. Log in now.' })
       console.log('successfully created account')
     } catch (e) {
-      dispatch({ type: 'flashMessage', value: e.response.data })
-      console.log(e)
+      dispatch({ type: 'flashMessage', value: e.response.data.error })
+      console.log(e.response.data.error)
     }
   }
 
@@ -46,8 +46,8 @@ function LoginSignup(props) {
       console.log(response)
       dispatch({ type: 'Login', value: response.data })
     } catch (e) {
-      dispatch({ type: 'flashMessage', value: e.response.data })
-      console.log(e)
+      dispatch({ type: 'flashMessage', value: e.response.data.error })
+      console.log(e.response.data.error)
     }
   }
 
