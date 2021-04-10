@@ -6,4 +6,3 @@
 ![Generic badge](https://img.shields.io/badge/ctrl+c-ctrl+v-blue.svg)
 ![Generic badge](https://img.shields.io/badge/designed%20in-ms%20paint-blueviolet.svg)
 [![Website humap-app.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/humap-app.herokuapp.com.svg)](https://humap-app.herokuapp.com/)
-<br/>
