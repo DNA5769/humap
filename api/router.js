@@ -32,18 +32,21 @@ router.post('/create-user', (req, res) => {
     {
         if (req.body.name.trim() === '')
         {
+            console.log('/create-user', { error: "Please enter a valid username" });
             res.status(401).json({
                 error: "Please enter a valid username"
             });
         }
         else if (req.body.email.trim() === '' || !validator.validate(req.body.email.trim()))
         {
+            console.log('/create-user', { error: "Please enter a valid email" });
             res.status(401).json({
                 error: "Please enter a valid email"
             });
         }
         else if (req.body.password === '')
         {
+            console.log('/create-user', { error: "Please enter a password" });
             res.status(401).json({
                 error: "Please enter a password"
             });
@@ -60,11 +63,13 @@ router.post('/create-user', (req, res) => {
 
             user.save()
             .then(result => {
+                console.log('/create-user', { message: "User added sucessfully" });
                 res.status(200).json({
                     message: "User added sucessfully"
                 });
             })
             .catch(err => {
+                console.log('/create-user', { error: err });
                 res.status(401).json({
                     error: err
                 });
@@ -73,6 +78,7 @@ router.post('/create-user', (req, res) => {
     }
     else
     {
+        console.log('/create-user', {  error: "Body should contain name, email and password!" });
         res.status(401).json({
             error: "Body should contain name, email and password!"
         });
@@ -84,12 +90,14 @@ router.post('/login-user', (req, res) => {
     {
         if (req.body.email.trim() === '' || !validator.validate(req.body.email.trim()))
         {
+            console.log('/login-user', {  error: "Please enter a valid email" });
             res.status(401).json({
                 error: "Please enter a valid email"
             });
         }
         else if (req.body.password === '')
         {
+            console.log('/login-user', {  error: "Please enter a password" });
             res.status(401).json({
                 error: "Please enter a password"
             });
@@ -100,6 +108,7 @@ router.post('/login-user', (req, res) => {
             .then(result => {
                 if (result.length === 0)
                 {
+                    console.log('/login-user', {  error: "Account with this email doesn't exist. Please sign up first" });
                     res.status(401).json({
                         error: "Account with this email doesn't exist. Please sign up first"
                     });
@@ -118,6 +127,7 @@ router.post('/login-user', (req, res) => {
                     }
                     else
                     {
+                        console.log('/login-user', { error: "Incorrect password" });
                         res.status(401).json({
                             error: "Incorrect password"
                         });
@@ -125,6 +135,7 @@ router.post('/login-user', (req, res) => {
                 }
             })
             .catch(err => {
+                console.log('/login-user', { error: err });
                 res.status(401).json({
                     error: err
                 });
@@ -133,6 +144,7 @@ router.post('/login-user', (req, res) => {
     }
     else
     {
+        console.log('/login-user', { error: "Body should contain email and password!" });
         res.status(401).json({
             error: "Body should contain email and password!"
         });
@@ -145,12 +157,14 @@ router.post('/create-post', (req, res) => {
     {
         if (req.body.title.trim() === '')
         {
+            console.log('/create-post', { error: "Please enter a title" });
             res.status(401).json({
                 error: "Please enter a title"
             });
         }
         else if (req.body.content.trim() === '')
         {
+            console.log('/create-post', { error: "Please enter content" });
             res.status(401).json({
                 error: "Please enter content"
             });
@@ -161,6 +175,7 @@ router.post('/create-post', (req, res) => {
             .then(result => {
                 if (result.length == 0)
                 {
+                    console.log('/create-post', { error: "Invalid userID" });
                     res.status(401).json({
                         error: "Invalid userID"
                     });
@@ -183,11 +198,13 @@ router.post('/create-post', (req, res) => {
         
                     post.save()
                     .then(result => {
+                        console.log('/create-post', { message: "Post added sucessfully" });
                         res.status(200).json({
                             message: "Post added sucessfully"
                         });
                     })
                     .catch(err => {
+                        console.log('/create-post', { error: err });
                         res.status(401).json({
                             error: err
                         });
@@ -195,6 +212,7 @@ router.post('/create-post', (req, res) => {
                 }
             })
             .catch(err => {
+                console.log('/create-post', { error: err });
                 res.status(401).json({
                     error: err
                 });
@@ -203,6 +221,7 @@ router.post('/create-post', (req, res) => {
     }
     else
     {
+        console.log('/create-post', { error: "Body should contain userID, latitude, longitude, title, content, tag and isAnonymous!" });
         res.status(401).json({
             error: "Body should contain userID, latitude, longitude, title, content, tag and isAnonymous!"
         });
@@ -214,6 +233,7 @@ router.get('/get-posts', (req, res) => {
     {
         if (typeof req.query.limit === 'undefined')
         {
+            console.log('/get-posts', { error: "Please specify limit" });
             res.status(401).json({
                 error: "Please specify limit"
             });
@@ -240,6 +260,7 @@ router.get('/get-posts', (req, res) => {
                     }));
             })
             .catch(err => {
+                console.log('/get-posts', { error: err });
                 res.status(401).json({
                     error: err
                 });
@@ -248,6 +269,7 @@ router.get('/get-posts', (req, res) => {
     }
     else
     {
+        console.log('/get-posts', { error: "Body should contain latitude, longitude and tag" });
         res.status(401).json({
             error: "Body should contain latitude, longitude and tag"
         });
@@ -262,6 +284,7 @@ router.get('/get-posts-length', (req, res) => {
             res.status(200).json({ length: results.filter(result => (req.body.tag == "All" || req.body.tag == result.tag) && distance(result.latitude, result.longitude, req.body.latitude, req.body.longitude) <= 2).length });
         })
         .catch(err => {
+            console.log('/get-posts-length', { error: err });
             res.status(401).json({
                 error: err
             });
@@ -269,6 +292,7 @@ router.get('/get-posts-length', (req, res) => {
     }
     else
     {
+        console.log('/get-posts-length', { error: "Body should contain latitude, longitude and tag" });
         res.status(401).json({
             error: "Body should contain latitude, longitude and tag"
         });
@@ -280,6 +304,7 @@ router.post('/create-comment', (req, res) => {
     {
         if (req.body.content.trim() === '')
         {
+            console.log('/create-comment', { error: "Please enter comment" });
             res.status(401).json({
                 error: "Please enter comment"
             });
@@ -290,6 +315,7 @@ router.post('/create-comment', (req, res) => {
             .then(result => {
                 if (result.length == 0)
                 {
+                    console.log('/create-comment', { error: "Invalid userID" });
                     res.status(401).json({
                         error: "Invalid userID"
                     });
@@ -303,10 +329,12 @@ router.post('/create-comment', (req, res) => {
                         avatar: result[0].avatar,
                         content: req.body.content
                     }}}).then(result => {
+                        console.log('/create-comment', { message: "Comment added sucessfully" });
                         res.status(200).json({
                             message: "Comment added sucessfully"
                         });
                     }).catch(err => {
+                        console.log('/create-comment', { error: err });
                         res.status(401).json({
                             error: err
                         });
@@ -314,6 +342,7 @@ router.post('/create-comment', (req, res) => {
                 }
             })
             .catch(err => {
+                console.log('/create-comment', { error: err });
                 res.status(401).json({
                     error: err
                 });
@@ -322,6 +351,7 @@ router.post('/create-comment', (req, res) => {
     }
     else
     {
+        console.log('/create-comment', { error: "Body should contain userID, postID and content!" });
         res.status(401).json({
             error: "Body should contain userID, postID and content!"
         });
