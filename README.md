@@ -8,6 +8,9 @@
 
 This project was developed by us, **Team ECMAniacs**, as a submission for [Hack36 4.0](https://www.hack36.com/)
 
+## Resources
+- [PPT](https://humap-app.herokuapp.com/get-ppt)
+
 ## Team ECMAniacs
 - [Aqib Suhail](https://github.com/geeqib23)
 - [Dennis Thomas](https://github.com/DNA5769)
