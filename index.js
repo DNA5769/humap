@@ -19,6 +19,10 @@ app.get('/get-ppt', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'Team ECMAniacs PPT.pdf'));
 });
 
+app.get('/get-demo', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'demo.html'));
+});
+
 // Middleware
 app.use(cors());
 app.use(express.static('public'));

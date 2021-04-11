@@ -10,6 +10,7 @@ This project was developed by us, **Team ECMAniacs**, as a submission for [Hack3
 
 ## Resources
 - [PPT](https://humap-app.herokuapp.com/get-ppt)
+- [Demo](https://humap-app.herokuapp.com/get-demo)
 
 ## Team ECMAniacs
 - [Aqib Suhail](https://github.com/geeqib23)
@@ -44,6 +45,7 @@ We allow the user to make posts along with a tag from his/her/their location and
 1. Finding a map api which was free and which worked well with React was quite a tough task
 2. Git Workflow
 3. There's pain after breakup and then there is debugging NodeJS
+4. Mapbox isn't the best when it comes to map apis and its react wrapper is even worse
 
 ## Additional Notes
 - Want to play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.
