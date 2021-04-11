@@ -39,13 +39,15 @@ We allow the user to make posts along with a tag from his/her/their location and
 2. ExpressJS
 3. React
 4. NodeJS
-5. Mapbox
+5. Bootstrap
+6. Mapbox
 
 ## Challenges We Faced
 1. Finding a map api which was free and which worked well with React was quite a tough task
 2. Git Workflow
 3. There's pain after breakup and then there is debugging NodeJS
 4. Mapbox isn't the best when it comes to map apis and its react wrapper is even worse
+5. Implementing commenting on posts on a single page app was a great challenge, but using React with some DOM manipulation  came to the rescue.
 
 ## Additional Notes
 - Want to play around with the code and make changes to it yourself? Well **checkout** the `development` branch of this repo.
