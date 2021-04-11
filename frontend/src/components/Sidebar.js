@@ -20,9 +20,9 @@ function Sidebar(props) {
         {/* <a href='#_' className='nav-link'>
           Link
         </a> */}
-        <a href='#_' className='nav-link'>
+        <Link to={'/'} className='nav-link'>
           <img className='avatar-small' src={appState.user.avatar} />
-        </a>
+        </Link>
         <a onClick={() => dispatch({ type: 'Logout' })} href='#_' className='nav-link'>
           <i className='fa fa-sign-out-alt fa-lg pl-2' style={{ color: '#c62b28' }} aria-hidden='true'></i>
         </a>
