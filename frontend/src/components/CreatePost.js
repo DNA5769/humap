@@ -55,7 +55,7 @@ function CreatePost(props) {
           <label htmlFor='post-body' className='text-muted mb-1 d-block'>
             <small>Body Content</small>
           </label>
-          <textarea onChange={e => updateContent(e.target.value)} name='body' id='post-body' className='body-content' type='text'></textarea>
+          <textarea style={{height: '20vh'}} onChange={e => updateContent(e.target.value)} name='body' id='post-body' className='body-content' type='text'></textarea>
         </div>
         <label class='form-check-label text-white'>
           <input

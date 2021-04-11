@@ -101,12 +101,12 @@ function Posts(props) {
 
   return (
     <>
-      <div className='container container--narrow py-md-5'>
+      <div className='container container--narrow py-md-4'>
         <h2 onClick={() => console.log(appState.flashMessage)} className='text-center text-white'>
           ACTIVITY NEAR YOU
         </h2>{' '}
-        <div className='dropdown float-right'>
-          <button type='button' className='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+        <div className='dropdown'>
+          <button style={{position: 'absolute', right: 0, bottom: '5px'}} type='button' className='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
             Filter with tags
           </button>
           <div className='dropdown-menu'>

@@ -60,7 +60,7 @@ function LoginSignup(props) {
     <div>
       {accountStatus ? (
         <div className=''>
-          <form onSubmit={handleLogin} className='box'>
+          <form style={{marginTop: '50px'}} onSubmit={handleLogin} className='box'>
             <h1>Login</h1>
             <p className='text-muted'> Please enter your login and password!</p>
             <input autoFocus ref={firstinput} onChange={e => setEmail(e.target.value)} type='text' name='' placeholder='E-mail'></input>
@@ -73,7 +73,7 @@ function LoginSignup(props) {
         </div>
       ) : (
         <div className=''>
-          <form onSubmit={handleSignup} className='box'>
+          <form style={{marginTop: '30px'}} onSubmit={handleSignup} className='box'>
             <h1>Signup</h1>
             <p className='text-muted'> Please enter your email, username and create a password!</p>
             <input ref={firstinput} onChange={e => setEmail(e.target.value)} type='text' name='' placeholder='E-mail'></input>
