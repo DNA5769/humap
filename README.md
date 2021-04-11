@@ -19,7 +19,7 @@ This project was developed by us, **Team ECMAniacs**, as a submission for [Hack3
 
 ---
 
-[Humap](https://humap-app.herokuapp.com/) is a web app which aims to digitalize how societies interact within themselves by providing an easy interface to communicate which can result in creating better versions of themselves.
+Humap ([https://humap-app.herokuapp.com/](https://humap-app.herokuapp.com/)) is a web app which aims to digitalize how societies interact within themselves by providing an easy interface to communicate which can result in creating better versions of themselves. *Please open website in computer/laptop.*
 
 ## Why We Built This
 Back in the days, society used to be tighly linked and knew everything about each other, they used to communicate very well with each other and this made societies
