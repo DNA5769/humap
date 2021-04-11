@@ -10,7 +10,8 @@ This project was developed by us, **Team ECMAniacs**, as a submission for [Hack3
 
 ## Resources
 - [PPT](https://humap-app.herokuapp.com/get-ppt)
-- [Demo](https://humap-app.herokuapp.com/get-demo)
+- [Demo](https://humap-app.herokuapp.com/get-demo) (Open in Google Chrome)
+- [Demo but for those who don't like Chrome](https://github.com/DNA5769/humap/blob/main/public/Team%20ECMAniacs%20DEMO.mkv?raw=true)
 
 ## Team ECMAniacs
 - [Aqib Suhail](https://github.com/geeqib23)
