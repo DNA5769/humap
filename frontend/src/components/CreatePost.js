@@ -41,6 +41,13 @@ function CreatePost(props) {
   useEffect(() => {
     console.log(tag)
   }, [tag])
+
+  useEffect(() => {
+    if (!appState.allowPost) {
+      props.history.push('/')
+      dispatch({ type: 'flashMessage', value: 'Post not allowed outside zone' })
+    }
+  }, [appState.allowPost])
   return (
     <div className='d-flex h-100 justify-content-center align-items-center'>
       <form className='createpost' onSubmit={handleSubmit}>
@@ -55,7 +62,7 @@ function CreatePost(props) {
           <label htmlFor='post-body' className='text-muted mb-1 d-block'>
             <small>Body Content</small>
           </label>
-          <textarea style={{height: '20vh'}} onChange={e => updateContent(e.target.value)} name='body' id='post-body' className='body-content' type='text'></textarea>
+          <textarea style={{ height: '20vh' }} onChange={e => updateContent(e.target.value)} name='body' id='post-body' className='body-content' type='text'></textarea>
         </div>
         <label class='form-check-label text-white'>
           <input

@@ -30,15 +30,15 @@ function Home(props) {
               <Route path='/create-post'>
                 <CreatePost />
               </Route>
-              <Route path='/post-not-allowed'>
-                <div className='mt-5 text-align-center text-white'>You cant create a post outside 2 kilometres :P</div>
-              </Route>
             </Switch>
           </div>
           {appState.loggedIn && (
+            // <div className='container'>
             <div className='d-flex align-items-center justify-content-end col-1' id='sidebar'>
+              {/* <div className=''></div> */}
               <Sidebar />
             </div>
+            // </div>
           )}
         </div>
       </div>
